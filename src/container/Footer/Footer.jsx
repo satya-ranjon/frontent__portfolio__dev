@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { images } from "../../constants";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { client } from "../../client";
@@ -22,8 +21,6 @@ const Footer = () => {
   };
 
   const handleSubmit = () => {
-    setLoading(true);
-
     const contact = {
       _type: "contact",
       name: formData.username,
@@ -31,13 +28,16 @@ const Footer = () => {
       message: formData.message,
     };
 
-    client
-      .create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      })
-      .catch((err) => console.log(err));
+    if (formData.email) {
+      setLoading(true);
+      client
+        .create(contact)
+        .then(() => {
+          setLoading(false);
+          setIsFormSubmitted(true);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
