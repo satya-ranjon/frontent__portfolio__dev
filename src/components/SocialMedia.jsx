@@ -24,7 +24,11 @@ const SocialMedia = () => (
       <FaFacebookF />
     </a>
 
-    <a href="https://twitter.com/satya_ranjon" target="_blank" rel="noreferrer">
+    <a
+      href="https://www.instagram.com/satya_ranjon/"
+      target="_blank"
+      rel="noreferrer"
+    >
       <BsInstagram />
     </a>
   </div>
